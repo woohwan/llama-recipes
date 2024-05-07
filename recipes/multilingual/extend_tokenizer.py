@@ -13,7 +13,7 @@ from sentencepiece import sentencepiece_model_pb2 as sp_pb2_model
 
 
 def main(new_tokenizer_path, extended_tokenizer_save_path):
-    original_tokenizer_path = hf_hub_download(repo_id="meta-llama/Llama-2-7b-chat-hf", filename="tokenizer.model", local_dir="original_tokenizer")
+    original_tokenizer_path = hf_hub_download(repo_id="meta-llama/Meta-Llama-3-8B-Instruct", filename="tokenizer.model", local_dir="original_tokenizer")
     original_tokenizer_spm = sp_pb2_model.ModelProto()
     original_tokenizer_spm.ParseFromString(open(original_tokenizer_path, "rb").read())
     new_tokenizer_spm = sp_pb2_model.ModelProto()
