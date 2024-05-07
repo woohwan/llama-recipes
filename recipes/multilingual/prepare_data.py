@@ -2,9 +2,9 @@ import fire
 import os
 from datasets import load_dataset
 
-DATASET = "rahular/varta"
+DATASET = "richard-park/aihub-contents-ko-only"
 
-def main(split="validation", lang="hi", docs_to_sample=10_000, save_path="data"):
+def main(split="validation", lang="ko", docs_to_sample=10_000, save_path="data"):
     dataset = load_dataset(DATASET, split=split, streaming=True)
     os.makedirs(save_path, exist_ok=True)
     with open(os.path.join(save_path, f"{lang}.txt"), "w") as f:
@@ -15,7 +15,7 @@ def main(split="validation", lang="hi", docs_to_sample=10_000, save_path="data")
             if count >= docs_to_sample:
                 break
             if d["langCode"] == lang:
-                f.write(d["headline"] + "\n" + d["text"] + "\n")
+                f.write(d["text"] + "\n")
                 count += 1
 
 
