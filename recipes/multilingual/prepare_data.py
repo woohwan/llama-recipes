@@ -2,7 +2,7 @@ import fire
 import os
 from datasets import load_dataset
 
-DATASET = "richard-park/aihub-contents-ko-only"
+DATASET = "richard-park/aihub-dataset"
 
 def main(split="validation", lang="ko", docs_to_sample=10_000, save_path="data"):
     dataset = load_dataset(DATASET, split=split, streaming=True)
